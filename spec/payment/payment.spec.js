@@ -1,8 +1,11 @@
-const {readAndCalculate} = require('/src/payment/payment.js')
+import * as payment from '../../src/payment/payment.js'
 
-describe("A suite", function() {
-  it("contains spec with an expectation", function() {
-    readAndCalculate()
-    expect(true).toBe(true);
-  });
-});
+describe('payment', function () {
+  it('"process" must return amount to pay', function () {
+    expect(payment.process('JOSE=MO08:00-21:00')).toBe('The amount to pay JOSE is: 220')
+  })
+
+  it('process must return error type', function () {
+    expect(payment.process('JO234323d')).toBe('TypeError')
+  })
+})
