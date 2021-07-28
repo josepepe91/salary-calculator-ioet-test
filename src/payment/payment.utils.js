@@ -26,12 +26,10 @@ export const calculateItemCost = (minutesInit, minutesEnd, item) => {
       cost = cost + ((minutesEnd - a) / 60) * item.cost
     }
   })
-  console.log('return', cost)
   return cost
 }
 
 export const calculateCost = (schedule, config = configurations) => {
-  console.log('calculateCost',schedule)
   const day = schedule.slice(0, 2)
   const hours = schedule.slice(2).split('-')
   const {minutesInit, minutesEnd} = transformToMinutes(hours)
